@@ -261,6 +261,10 @@ def predict():
     final_emotion = combine_emotions(all_emotions)
 
     return jsonify(final_emotion)
+@app.route('/health')
+def healthcheck():
+    # 서버 상태를 확인하고 문제가 없으면 'OK' 응답을 반환합니다.
+    return jsonify({'status': 'OK'})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
