@@ -1,3 +1,4 @@
+from fastapi import FastAPI
 from flask import Flask, request, jsonify
 import torch
 import numpy as np
@@ -8,6 +9,7 @@ from torch import nn
 from torch.utils.data import Dataset
 app = Flask(__name__)
 device = torch.device("cuda:0")
+app = FastAPI()
 
 tokenizer = KoBERTTokenizer.from_pretrained('skt/kobert-base-v1')
 bertmodel = BertModel.from_pretrained('skt/kobert-base-v1', return_dict=False)
@@ -221,17 +223,10 @@ def combine_emotions(emotions_list):
 
     return {emotion: round(prob, 2) for emotion, prob in combined.items()}
 
-model = BERTClassifier(bertmodel, dr_rate=0.5).to(device)
 
-torch.load('/home/chkun3109/AIModelDistributeServer/model/SentimentAnalysisKOBert.pt')
-model = BERTClassifier(bertmodel, dr_rate=0.5).to(device)
-model.load_state_dict(torch.load('/home/chkun3109/AIModelDistributeServer/model/SentimentAnalysisKOBert_StateDict.pt'))
-
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.get_json()
-    sentence = data['text']
+@app.post('/predict')
+def predict(text: str):
+    sentence = text
     chunk_size = 100
 
     # 텍스트를 chunk_size 길이의 부분으로 나눔
@@ -261,14 +256,18 @@ def predict():
     # 전체 감정을 종합
     final_emotion = combine_emotions(all_emotions)
 
-    return jsonify(final_emotion)
+    return final_emotion
 
 
-@app.route('/health')
+@app.get('/health')
 def healthcheck():
     # 서버 상태를 확인하고 문제가 없으면 'OK' 응답을 반환합니다.
-    return jsonify({'status': 'OK'})
+    return {'status': 'OK'}
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    torch.load('/Users/romad/Documents/Project/AIModelDistributeServer/model/SentimentAnalysisKOBert.pt')
+    model = BERTClassifier(bertmodel, dr_rate=0.5).to(device)
+    model.load_state_dict(torch.load('/Users/romad/Documents/Project/AIModelDistributeServer/model/SentimentAnalysisKOBert_StateDict.pt'))
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

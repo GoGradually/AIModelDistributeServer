@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e131d5a-527c-4551-9a85-db284e7f5d5c" name="Changes" comment="포트 변경">
+    <list default="true" id="1e131d5a-527c-4551-9a85-db284e7f5d5c" name="Changes" comment="함수 변경">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
@@ -101,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1717407580868</updated>
       <workItem from="1717407586198" duration="8898000" />
-      <workItem from="1717494724571" duration="752000" />
+      <workItem from="1717494724571" duration="3679000" />
     </task>
     <task id="LOCAL-00001" summary="add git ignore">
       <option name="closed" value="true" />
@@ -159,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717448615776</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="함수 변경">
+      <option name="closed" value="true" />
+      <created>1717499745845</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717499745845</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,9 +180,10 @@
     <MESSAGE value="requirements.txt 생성" />
     <MESSAGE value="healthcheck 추가" />
     <MESSAGE value="포트 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="포트 변경" />
+    <MESSAGE value="함수 변경" />
+    <option name="LAST_COMMIT_MESSAGE" value="함수 변경" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/AIModelDistributeServer$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1717438650134" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/AIModelDistributeServer$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1717500634086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
